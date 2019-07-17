@@ -4,12 +4,15 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title d-flex justify-content-between align-center">
-            {{  title   }} <a href="/notes/edit/{{id}}"><i class="fas fa-edit"></i></a>
+            {{  title   }} <a href="/notes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
           </h4>
           <p>{{description}}</p>
-          <button class="btn btn-danger btn-block btn-sm">
-            Delete
-          </button>
+          <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="btn btn-danger btn-block btn-sm">
+              Delete
+            </button>
+          </form>
         </div>
       </div>
     </div>
