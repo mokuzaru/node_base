@@ -27,8 +27,9 @@ router.post('/notes/new-notes', async(req,res) =>{
     res.redirect('/notes');
   }
 });
-router.get('/notes', (req, res) =>{
-  res.send('notas');
+router.get('/notes', async(req, res) =>{
+  const notes = await Note.find();
+  res.render('notes/allnotes', { notes });
 });
 
 module.exports = router;
